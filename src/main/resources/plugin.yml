@@ -1,0 +1,29 @@
+name: kindomcum
+version: '1.0-SNAPSHOT'
+main: me.nightcreat.kindomcum.Kindomcum
+api-version: '1.21'
+commands:
+  giveS:
+      description: gibt übberaschung
+      usage: /<command>
+      permission: yourplugin.yourcommandpermission
+  createfaction:
+    description: cum
+    usage: /<command>
+  factionpalyers:
+    description: zeit deine kollegen
+    usage: /<command>
+  addplayerto:
+    description: hinzufügen von spielern
+    usage: /<command>
+  leavefaction:
+    description: verlass die faction du knecht
+    usage: /<command>
+  deletefaction:
+    description: löscht die fraktion!!!
+    usage: /<command>
+  factioncolour:
+    description: ändert die garbe der fraktion
+    usage: /<command>
+
+
