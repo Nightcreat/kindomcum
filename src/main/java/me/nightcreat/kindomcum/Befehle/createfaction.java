@@ -37,7 +37,7 @@ public class createfaction implements CommandExecutor {
                 else if (args.length == 2){
                  name = args[0];
                  colour = args[1];
-                 Kindomcum.getInstance().db.createzeile(name, player.getUniqueId().toString() , colour);
+                 Kindomcum.getInstance().db.createzeile(name, player.getUniqueId().toString() , colour,player.getUniqueId().toString() );
                  player.sendMessage(ChatColor.LIGHT_PURPLE + "A faction succesfully created ");
                 }
                 else if (args.length > 2){

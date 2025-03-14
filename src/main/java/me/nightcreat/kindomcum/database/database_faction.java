@@ -23,15 +23,16 @@ public class database_faction {
     )""");
         }
     }
-   public void createzeile  (String name , String player , String colour) {
+   public void createzeile  (String name , String player , String colour, String admin) {
         List <String> players = new ArrayList<>();
         players.add(player);
-        String query = "INSERT INTO factions (name, players, colour) VALUES (?, ?, ?)";
+        String query = "INSERT INTO factions (name, players, colour,admin) VALUES (?, ?, ?, ?)";
         Gson gson = new Gson();
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, name);
             statement.setString(2, gson.toJson(players));
             statement.setString(3, colour);
+            statement.setString(4, admin);
             statement.executeUpdate();
         }catch (SQLException e ) {}
 
@@ -133,4 +134,28 @@ public class database_faction {
        return faction;
    }
 
+   public String getAdmin (String name){
+
+        String query = "SELECT * FROM factions WHERE name = ?";
+        String admin= "";
+        try (PreparedStatement statement = connection.prepareStatement(query)){
+            statement.setString(1, name);
+            ResultSet resultSet= statement.executeQuery();
+            admin = resultSet.getString("admin");
+        }catch (SQLException e ){System.out.println("killt it");}
+       return admin;
+
+   }
+
+   public void createaeltster(String player){
+        String query = "INSERT INTO factions(aeltester) VALUES (?)";
+        try (PreparedStatement statement = connection.prepareStatement(query)){
+            statement.setString(1, player);
+            statement.executeUpdate();
+        } catch (Exception e) {
+                throw new RuntimeException(e);
+        }
+
+
+   }
 }
